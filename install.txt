@@ -1,0 +1,22 @@
+Istruzioini di installazione
+
+1. creare la cartella [root]/plugins/fpErrorNotifierPlugin
+2. copiare il contenuto del repository dentro alla cartella
+3. aggiungere nel file ProjectConfiguration.class.php
+
+	public function setup()
+	{
+		$this->enablePlugins(array('fpErrorNotifierPlugin'));
+	}
+
+4. creare un file [root]/config/notify.yml come da esempio
+	all:
+  		driver:
+    		class:                  fpErrorNotifierDriverMailCgt
+    		options:
+      			to:                   sviluppo+gra@cogitoweb.it
+      			from:                 noreply@cogitoweb.it
+      
+  		handler:
+    		options:
+      			ignore_exceptions:    [sfStopException, sfError404Exception]
